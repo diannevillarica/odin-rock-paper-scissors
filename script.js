@@ -1,7 +1,7 @@
 // 1 Create computerPlay function which randomizes the pick for computerPlay
 
 function computerPlay() {
-  const computerSelection = ["Rock", "Paper", "Scissors"];
+  const computerSelection = ["rock", "paper", "scissors"];
   return computerSelection[
     Math.floor(Math.random() * computerSelection.length)
   ];
@@ -14,10 +14,12 @@ computerPlay();
 // 3 Create playRound function which takes two params
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection.charAt(0).toUpperCase() +
-    playerSelection.slice(1).toLowerCase();
+  const playerSelectionCaseInsensitive = playerSelection.toLowerCase();
 
-  if (playerSelection == "Rock" && computerSelection == "Paper") {
+  if (
+    playerSelectionCaseInsensitive == "rock" &&
+    computerSelection == "paper"
+  ) {
     console.log("You Lose! Paper beats Rock");
   }
 }

@@ -12,12 +12,16 @@ function computerPlay() {
 // const promptPlayerSelection = prompt("Choose one: Rock, Paper or Scissors");
 
 // 3 Create playRound function which takes two params
-let playerPoint = "";
-let computerPoint = "";
+let playerPoint = 0;
+let computerPoint = 0;
+
+const playerSelection = "scissors"; // manually for testing
+const computerSelection = computerPlay();
+
+let point = playRound(playerSelection, computerSelection);
 
 function playRound(playerSelection, computerSelection) {
   // playerSelection.toLowerCase();
-
   // console.log(playerSelection);
   // console.log(computerSelection);
 
@@ -39,20 +43,16 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection == "rock" && computerSelection == "scissors") {
     console.log("You Win! Rock beats Scissors");
     return (playerPoint += 1);
-  } else {
-    console.log("It's a draw! Try again.");
+  } else if (
+    (playerSelection == "rock" && computerSelection == "rock") ||
+    (playerSelection == "paper" && computerSelection == "paper") ||
+    (playerSelection == "scissors" && computerSelection == "scissors")
+  ) {
+    console.log("Draw! Have another go");
     return 0;
   }
 }
-
-const playerSelection = "scissors"; // manually for testing
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
-const point = playRound();
-// console.log(playerPoint);
-// console.log(computerPoint);
-// console.log(point);
+// console.log(playRound(playerSelection, computerSelection));
 
 for (let i = 1; i <= 5; i++) {
   function game(point) {
@@ -60,6 +60,7 @@ for (let i = 1; i <= 5; i++) {
     // end the function after 5 rounds
     // print who wins the 5 rounds
     // console.log(point);
+    console.log(point);
   }
 
   game(point);

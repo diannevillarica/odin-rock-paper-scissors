@@ -1,9 +1,11 @@
+// variables outside of for loop
 const playerArr = [];
 const computerArr = [];
 
 let playerTotal1 = 0;
 let computerTotal1 = 0;
 
+// for loop begins
 for (let i = 1; i <= 5; i++) {
   // Creates random selection for the computer
   function computerPlay() {
@@ -13,7 +15,6 @@ for (let i = 1; i <= 5; i++) {
     ];
   }
 
-  // 2 Create playRound function which takes two params
   let playerPoint = 0;
   let computerPoint = 0;
 
@@ -67,6 +68,7 @@ for (let i = 1; i <= 5; i++) {
       (prevValue, currValue) => prevValue + currValue
     );
 
+    // necessary console logs
     console.log(`Player score: ${playerTotal}`);
     console.log(`Computer score: ${computerTotal}`);
     console.log("");
@@ -77,11 +79,13 @@ for (let i = 1; i <= 5; i++) {
 
   game();
 }
+// for loop ends
 
+// message to the user after 5 rounds finished
 if (playerTotal1 > computerTotal1) {
   console.log("Congrats! You won the game! 🙂");
 } else if (playerTotal1 < computerTotal1) {
   console.log("Sorry you lost to a computer! 😞");
 } else {
-  console.log("It's a draw! Do you want to try again? 😬");
+  console.log("It's a draw! Would you like to play again? 😬");
 }

@@ -18,7 +18,7 @@ let computerPoint = 0;
 const playerSelection = "scissors"; // manually for testing
 const computerSelection = computerPlay();
 
-let point = playRound(playerSelection, computerSelection);
+// let point = playRound(playerSelection, computerSelection);
 
 function playRound(playerSelection, computerSelection) {
   // playerSelection.toLowerCase();
@@ -59,9 +59,7 @@ for (let i = 1; i <= 5; i++) {
     // tally the points as they come in for computer and player
     // end the function after 5 rounds
     // print who wins the 5 rounds
-    // console.log(point);
-    console.log(point);
   }
 
-  game(point);
+  game(playRound(playerSelection, computerSelection));
 }

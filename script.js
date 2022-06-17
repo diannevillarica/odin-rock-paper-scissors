@@ -6,7 +6,6 @@ function computerPlay() {
     Math.floor(Math.random() * computerSelection.length)
   ];
 }
-// computerPlay();
 
 // 2 Ask user input to take their pick and return that also
 // const promptPlayerSelection = prompt("Choose one: Rock, Paper or Scissors");
@@ -18,13 +17,7 @@ let computerPoint = 0;
 const playerSelection = "scissors"; // manually for testing
 const computerSelection = computerPlay();
 
-// let point = playRound(playerSelection, computerSelection);
-
 function playRound(playerSelection, computerSelection) {
-  // playerSelection.toLowerCase();
-  // console.log(playerSelection);
-  // console.log(computerSelection);
-
   if (playerSelection == "rock" && computerSelection == "paper") {
     console.log("You Lose! Paper beats Rock");
     return (computerPoint += 1);
@@ -48,18 +41,46 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == "paper" && computerSelection == "paper") ||
     (playerSelection == "scissors" && computerSelection == "scissors")
   ) {
-    console.log("Draw! Have another go");
+    console.log("Draw! Have another go!");
     return 0;
   }
 }
 // console.log(playRound(playerSelection, computerSelection));
 
-for (let i = 1; i <= 5; i++) {
-  function game(point) {
-    // tally the points as they come in for computer and player
-    // end the function after 5 rounds
-    // print who wins the 5 rounds
-  }
+//  tally the points as they come in for computer and player
+// end the function after 5 rounds
+// print who wins the 5 rounds
+// function game(point) {
+//   const playerArr = [];
+//   const computerArr = [];
+//   const initialValue = 1;
 
-  game(playRound(playerSelection, computerSelection));
+//   // for loop
+//   for (let i = 1; i <= 5; i++) {
+//     playerArr.push(playerPoint);
+//     computerArr.push(computerPoint);
+//   }
+
+//   console.log(playerArr);
+// }
+// game(playRound(playerSelection, computerSelection));
+
+function game(point) {
+  const playerArr = [];
+  const computerArr = [];
+
+  playerArr.push(playerPoint);
+  computerArr.push(computerPoint);
+
+  const playerTotal = playerArr.reduce(
+    (prevValue, currentValue) => prevValue + current
+  );
+  const computerTotal = computerArr.reduce(
+    (prevValue, currentValue) => prevValue + current
+  );
+
+  console.log(`player total score ${playerTotal}`);
+  console.log(`computer total score ${computerTotal}`);
 }
+
+game(playRound(playerSelection, computerSelection));

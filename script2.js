@@ -1,16 +1,16 @@
+// for (let i = 0; i < 6; i++) {
 const playerArr = [];
 const computerArr = [];
 
 let playerScore = 0;
 let computerScore = 0;
 
-// for (let i = 0; i < 6; i++) {
-function game() {
-  const els = document.querySelectorAll("button");
+const game = () => {
+  const options = document.querySelectorAll("button");
   const computerOptions = ["rock", "paper", "scissors"];
 
-  els.forEach((el) => {
-    el.addEventListener("click", function () {
+  options.forEach((option) => {
+    option.addEventListener("click", function () {
       console.log("clicked");
       const computerNum = Math.floor(Math.random() * 3);
       const computerSelection = computerOptions[computerNum];
@@ -21,7 +21,7 @@ function game() {
   let playerPoint = 0;
   let computerPoint = 0;
 
-  function playRound(playerSelection, computerSelection) {
+  const playRound = (playerSelection, computerSelection) => {
     console.log("inside playRound");
     if (playerSelection == "rock" && computerSelection == "paper") {
       console.log("You Lose! Paper beats Rock");
@@ -49,9 +49,7 @@ function game() {
       console.log("Draw! Have another go!");
       return 0;
     }
-  }
-
-  // playRound(playerSelection, computerSelection);
+  };
 
   playerArr.push(playerPoint);
   computerArr.push(computerPoint);
@@ -67,12 +65,13 @@ function game() {
   console.log(`Player score: ${playerScore}`);
   console.log(`Computer score: ${computerScore}`);
   console.log("");
-}
+};
+
 game();
-// }
 
 if (playerScore > computerScore) {
   console.log("Congrats! You won the game! 🙂");
 } else if (playerScore < computerScore) {
   console.log("Sorry, but you lost to a computer! 😞");
 }
+// }

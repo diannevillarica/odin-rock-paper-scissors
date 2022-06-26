@@ -13,39 +13,44 @@ function game() {
   });
 
   function updateScore() {
-    console.log(`Current player score: ${playerScore}`);
-    console.log(`Current computer score: ${computerScore}`);
-    console.log("");
+    document.querySelector(".score-player h4").textContent = playerScore;
+    document.querySelector(".score-computer h4").textContent = computerScore;
   }
 
   function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "paper") {
-      console.log("You Lose! Paper beats Rock");
+      document.querySelector(".message").textContent =
+        "You Lose! Paper beats Rock";
       computerScore++;
       updateScore();
       return;
     } else if (playerSelection == "paper" && computerSelection == "scissors") {
-      console.log("You Lose! Scissors beats Paper");
+      document.querySelector(".message").textContent =
+        "You Lose! Scissors beats Paper";
       computerScore++;
       updateScore();
       return;
     } else if (playerSelection == "scissors" && computerSelection == "rock") {
-      console.log("You Lose! Rock beats Scissors");
+      document.querySelector(".message").textContent =
+        "You Lose! Rock beats Scissors";
       computerScore++;
       updateScore();
       return;
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-      console.log("You Win! Paper beats Rock");
+      document.querySelector(".message").textContent =
+        "You Win! Paper beats Rock";
       playerScore++;
       updateScore();
       return;
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-      console.log("You Win! Scissors beats Paper");
+      document.querySelector(".message").textContent =
+        "You Win! Scissors beats Paper";
       playerScore++;
       updateScore();
       return;
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-      console.log("You Win! Rock beats Scissors");
+      document.querySelector(".message").textContent =
+        "You Win! Rock beats Scissors";
       playerScore++;
       updateScore();
       return;
@@ -54,7 +59,7 @@ function game() {
       (playerSelection == "paper" && computerSelection == "paper") ||
       (playerSelection == "scissors" && computerSelection == "scissors")
     ) {
-      console.log("Draw! Have another go!");
+      document.querySelector(".message").textContent = "Draw! Have another go!";
       updateScore();
       return;
     }

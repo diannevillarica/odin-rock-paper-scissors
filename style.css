@@ -27,8 +27,19 @@ button {
   border-radius: 0.3rem;
   border: none;
   background-color: tomato;
+  color: white;
+  font-family: "Open Sans", sans;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 button:hover {
   transform: scale(1.1);
+  transition: 0.3s ease;
+}
+
+h4 {
+  text-align: center;
+  font-size: 6rem;
+  margin: 0;
 }

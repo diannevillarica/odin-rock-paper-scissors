@@ -6,9 +6,11 @@ function game() {
 
   els.forEach((el) => {
     el.addEventListener("click", function () {
+      document.querySelector(".winner").textContent = "";
       const computerOptions = ["rock", "paper", "scissors"];
       const computerSelection = computerOptions[Math.floor(Math.random() * 3)];
       playRound(this.textContent, computerSelection);
+      checkScore();
     });
   });
 
@@ -64,6 +66,19 @@ function game() {
       return;
     }
   }
-}
 
+  function checkScore() {
+    if (playerScore === 5 || computerScore === 5) {
+      playerScore === 5
+        ? (document.querySelector(".winner").textContent =
+            "You won 5 rounds! Nice job! 🎉")
+        : (document.querySelector(".winner").textContent =
+            "Sorry, you lost to the computer! 😢");
+      playerScore = 0;
+      computerScore = 0;
+      document.querySelector(".message").textContent =
+        "Press any button to start!";
+    }
+  }
+}
 game();

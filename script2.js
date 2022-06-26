@@ -1,35 +1,28 @@
 const playerArr = [];
 const computerArr = [];
 
-let playerFinalScore = 0;
-let computerFinalScore = 0;
+let playerScore = 0;
+let computerScore = 0;
 
+// for (let i = 0; i < 6; i++) {
 function game() {
-  function playerPlay(e) {
-    if (e === undefined) return;
-    return e.target.textContent.toLowerCase();
-  }
-  const el = document.querySelectorAll("button");
-  el.forEach((el) => {
-    console.log(el);
-    el?.addEventListener("click", playerPlay);
-  });
-  const playerSelection = playerPlay();
-  console.log(playerSelection);
+  const els = document.querySelectorAll("button");
+  const computerOptions = ["rock", "paper", "scissors"];
 
-  function computerPlay() {
-    const computerSelection = ["rock", "paper", "scissors"];
-    return computerSelection[
-      Math.floor(Math.random() * computerSelection.length)
-    ];
-  }
-  const computerSelection = computerPlay();
-  // const playerSelection = p();
+  els.forEach((el) => {
+    el.addEventListener("click", function () {
+      console.log("clicked");
+      const computerNum = Math.floor(Math.random() * 3);
+      const computerSelection = computerOptions[computerNum];
+      playRound(this.textContent, computerSelection);
+    });
+  });
 
   let playerPoint = 0;
   let computerPoint = 0;
 
   function playRound(playerSelection, computerSelection) {
+    console.log("inside playRound");
     if (playerSelection == "rock" && computerSelection == "paper") {
       console.log("You Lose! Paper beats Rock");
       return (computerPoint += 1);
@@ -58,37 +51,28 @@ function game() {
     }
   }
 
-  playRound(playerSelection, computerSelection);
+  // playRound(playerSelection, computerSelection);
 
   playerArr.push(playerPoint);
   computerArr.push(computerPoint);
 
-  const playerScore = playerArr.reduce(
+  playerScore = playerArr.reduce(
     (prevValue, currValue) => prevValue + currValue
   );
-  const computerSCore = computerArr.reduce(
+  computerScore = computerArr.reduce(
     (prevValue, currValue) => prevValue + currValue
   );
 
   // necessary console logs
   console.log(`Player score: ${playerScore}`);
-  console.log(`Computer score: ${computerSCore}`);
+  console.log(`Computer score: ${computerScore}`);
   console.log("");
-
-  playerFinalScore = playerScore;
-  computerFinalScore = computerSCore;
 }
-
 game();
+// }
 
-if (playerFinalScore > computerFinalScore) {
+if (playerScore > computerScore) {
   console.log("Congrats! You won the game! 🙂");
-} else if (playerFinalScore < computerFinalScore) {
+} else if (playerScore < computerScore) {
   console.log("Sorry, but you lost to a computer! 😞");
 }
-
-// when player click, game starts
-// const el = document.querySelectorAll("button");
-// el.forEach((el) => {
-//   el?.addEventListener("click", game);
-// });
